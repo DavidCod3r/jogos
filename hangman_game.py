@@ -1,12 +1,14 @@
 import random
 
 
-def play():
+def wellcome():
     print("********************************")
     print("  WELCOME TO THE HANGMAN GAME! ")
     print("********************************")
     print()
 
+
+def load_secret_word():
     archive = open('words.txt', 'r')
     words = []
 
@@ -18,8 +20,14 @@ def play():
 
     number = random.randrange(0, len(words))
     secret_word = words[number].upper()
+    return secret_word
 
+    
+def play():
 
+    wellcome()
+
+    secret_word = load_secret_word()
     hit_letter = ["_" for letter in secret_word] 
 
     hanged = False
